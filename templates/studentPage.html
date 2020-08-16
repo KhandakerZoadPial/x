@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<div class="row mt-4" >
+    
+    <div class="col">
+        <b><h1>Attendance Submission...</h1></b>
+    <br>
+<form action="/studentPage" method="post">
+  {% csrf_token %}
+    <div class="form-group">
+  <b><label for="usr">CLASS CODE:</label></b>
+  <input type="text" class="form-control" id="usr" name="clsCode">
+</div>
+<div class="form-group">
+    <b><label for="usr">Student ID:</label></b>
+  <input type="text" class="form-control" id="usr" name="stu_id">
+</div>
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+</form>
+<div>
+  {% for message in messages %}
+  <h3>{{message}}</h3>
+  {% endfor %}
+</div>
+    </div>
+</div>
+</div>
+{% endblock %}

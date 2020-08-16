@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+<div class="row mt-4" >
+    <div class="col">
+        <h1>Create a class...</h1>
+        <br>
+<form action="/newClass" method="post">
+  {% csrf_token %}
+<div class="form-group">
+    <b><label for="usr">Class Name:</label></b>
+  <input type="text" class="form-control" id="usr" name="cls_name">
+</div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+ </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

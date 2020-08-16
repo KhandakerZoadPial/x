@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+	<br>
+	<br>
+	
+	
+	<div class="float-left">
+		<h1>Hey, {{user.first_name}}!</h1>
+
+	</div>
+	<div class="float-right">
+		<form action="/logout" method="post">
+			{% csrf_token %}
+		<h2> <button type="submit" class="btn btn-dark">Logout</button></h2>
+		</form>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+  <div class="row mt-4" >
+    <div class="col">
+
+
+
+
+
+      
+    
+
+
+       <ul class="list-group">
+       <li class="list-group-item active">All the classes you have created.<br>Click individual class to get all data.</li>
+        {% for post in classes %}
+		 <b><h1 style="color: #348ceb;"><a href="{{post.cls_name}}"><li class="list-group-item">{{post.cls_name}}</a></b>
+		 <br>
+
+
+
+		 {% if post.is_active %}
+			<a href="/turnoff/{{post.cls_name}}"><button  class="btn btn-secondary">Turn off receiving </button></a>
+		{% else %}
+			<a href="/turnoff/{{post.cls_name}}"><button  class="btn btn-secondary">Turn on receiving</button></a>
+		{% endif %}
+		<form action="/generate/{{post.cls_name}}" method="post">
+			{% csrf_token %}
+			 <button type="submit" class="btn btn-secondary">Generate New Unique Key</button>
+		</form>
+		<a href="/delete/{{post.cls_name}}"><button type="button" class="btn btn-danger">Delete Class</button>
+		</a>
+	</li>
+      </ul>
+
+
+
+       {% endfor %}
+
+       <div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+ </div>
+
+    </div>
+ </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+

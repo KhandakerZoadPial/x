@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+
+  <div class="row mt-4" >
+    <div class="col">
+      <b><h1 style="padding-left: 20%;">WELLCOME To Attendance System...</h1></b>
+
+      <br>
+      <br>
+      <br>
+      <b>Register as Teacher<h1><a href="/register"><button type="button" class="btn btn-danger">Register!</button></a></h1></b>
+      <br>
+      <b>Teacher Login</b><br><br>
+      <a href="/login"><button type="button" class="btn btn-warning">Login</button>
+      <br><br><br></a>
+
+
+      <b>Submit Attendance(For Students)<h1>
+
+      <a href="/studentPage"><button type="button" class="btn btn-primary">Go to Submission Page</button></a></h1></b><br>
+
+      <marquee behavior="" direction="">Notice: The platform - Attend Online went through several changes, to make it a better platform for everyone, some previous accounts are deleted so that previous registered users don't miss new updates. Previously registered users are requested to create new accounts. Have a great day!</marquee>
+
+
+         <h1>How to use?</h1>
+         <p>For teachers –<br>
+
+            1.	Register First<br>
+            2.	Then Login<br>
+            3.	Before every class, create a new class with unique security code.<br>
+            4.	Then share it with students.<br>
+            5.	All the submitted attendance by students who used your security code will be saved to your profile.<br>
+</p>
+
+<p>For Students-<br>
+1.	Just click Go to Submission Page<br>
+2.	Enter the security code provided by your teacher<br>
+3.	Enter your student ID.<br>
+4.	Submit.<br>
+</p>
+<div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+ </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
